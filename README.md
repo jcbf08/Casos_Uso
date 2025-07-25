@@ -8,12 +8,12 @@ El objetivo es proporcionar ejemplos listos para usar y fácilmente desplegables
 ## **Contenido del Repositorio**
 
 ### **1. Detección de Objetos en Imágenes**
-- **Descripción:** App construida en Streamlit que permite subir imágenes y detectar objetos usando OpenAI Vision.
+- **Descripción:** Aplicación en Streamlit para detectar y describir objetos en imágenes usando OpenAI Vision, con una interfaz simple e interactiva para subir imágenes y obtener resultados en tiempo real.
 - **Carpeta:** `./01_Detectar_Imagenes/`
 - **Tecnologías:** `OpenAI API`, `Streamlit`, `Pillow`.
 
 ### **2. Sistema de Recomendación**
-- **Descripción:** Ejemplo de recomendador basado en contenido usando TF-IDF y `scikit-learn`.
+- **Descripción:** Recomendador de películas con Streamlit, basado en contenido usando TF-IDF y similitud coseno (scikit-learn), con opciones para filtrar por género y ajustar la cantidad de recomendaciones.
 - **Carpeta:** `./02_Sistema_Recomendacion/`
 - **Tecnologías:** `Streamlit`, `Scikit-Learn`, `Pandas`.
 
