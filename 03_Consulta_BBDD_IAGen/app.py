@@ -26,6 +26,7 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # =========================
 DB_URL = "https://github.com/lerocha/chinook-database/raw/master/ChinookDatabase/Data/Chinook_Sqlite.sqlite"
 DB_FILE = "Chinook_Sqlite.sqlite"
+# Documentación: https://docs.yugabyte.com/preview/sample-data/chinook/
 
 if not os.path.exists(DB_FILE):
     import requests

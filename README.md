@@ -18,6 +18,6 @@ El objetivo es proporcionar ejemplos listos para usar y fácilmente desplegables
 - **Tecnologías:** `Streamlit`, `Scikit-Learn`, `Pandas`.
 
 ### **3. Consulta Inteligente de Base de Datos**
-- **Descripción:** App que permite consultar datos en lenguaje natural y convertirlos en SQL.
+- **Descripción:** App en Streamlit que permite realizar consultas en lenguaje natural sobre una base de datos SQLite (Chinook), convirtiendo automáticamente el texto a SQL mediante OpenAI IAGen y mostrando los resultados en una tabla interactiva.
 - **Carpeta:** `./03_Consulta_BBDD_IAGen/`
 - **Tecnologías:** `LangChain`, `OpenAI`, `Streamlit`.
