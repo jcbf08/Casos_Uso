@@ -21,7 +21,3 @@ El objetivo es proporcionar ejemplos listos para usar y fácilmente desplegables
 - **Descripción:** App que permite consultar datos en lenguaje natural y convertirlos en SQL.
 - **Carpeta:** `./consulta_sql_ia/`
 - **Tecnologías:** `LangChain`, `OpenAI`, `Streamlit`.
-
----
-
-## **Estructura General**
