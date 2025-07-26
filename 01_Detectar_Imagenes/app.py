@@ -45,7 +45,7 @@ if uploaded_file is not None:
                         {"role": "system", "content": "Eres un experto en visión por computadora que detecta y describe objetos."},
                         {"role": "user", "content": [
                             {"type": "input_text", "text": "Detecta todos los objetos visibles y descríbelos."},
-                            {"type": "input_image", "image": img_bytes.getvalue()},
+                            {"type": "input_image", "image":image_base64},#img_bytes.getvalue()},
                         ]}
                     ]
                 )
