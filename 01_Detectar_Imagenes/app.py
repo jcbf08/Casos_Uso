@@ -40,7 +40,7 @@ if uploaded_file is not None:
                 img_bytes.seek(0)
 
                 img_base64 = base64.b64encode(img_bytes.getvalue()).decode("utf-8")
-                image_data_url = f"data:image/png;base64,{img_base64}"
+                img_data_url = f"data:image/png;base64,{img_base64}"
 
                 # Llamada a OpenAI Vision (gpt-4o)
                 response = client.chat.completions.create(
@@ -55,7 +55,7 @@ if uploaded_file is not None:
                             {
                                 "type": "image_url",
                                 "image_url": {
-                                    "url": image_data_url
+                                    "url": img_data_url
                                 }
                             }
                         ]}
