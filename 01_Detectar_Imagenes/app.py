@@ -3,6 +3,7 @@ from openai import OpenAI
 from PIL import Image
 import io
 import os
+import base64
 
 # ========================
 # Configuración de la App
@@ -34,6 +35,7 @@ if uploaded_file is not None:
             img_bytes = io.BytesIO()
             image.save(img_bytes, format="PNG")
             img_bytes.seek(0)
+            image_base64 = base64.b64encode(img_bytes.read()).decode('utf-8')
 
             try:
                 # Llamada al modelo de OpenAI
