@@ -15,7 +15,10 @@ st.markdown("Explora películas similares según sus géneros usando el dataset 
 # =========================
 @st.cache_data
 def load_movies():
-    return pd.read_csv("ml-latest-small/movies.csv")
+    # Streamlit On Premise [Configuración]
+    # return pd.read_csv("ml-latest-small/movies.csv")
+    # Streamlit Cloud [Configuración]
+    return pd.read_csv("movies.csv") 
 
 movies = load_movies()
 
