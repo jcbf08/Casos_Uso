@@ -15,6 +15,7 @@ st.title("🔍 Detección de Objetos en Imágenes con OpenAI Vision")
 # Configuración de OpenAI
 # ========================
 OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+
 if not OPENAI_API_KEY:
     st.error("No se ha configurado la API Key de OpenAI. Añádela en los Secrets de Streamlit o como variable de entorno.")
     st.stop()
@@ -32,20 +33,31 @@ if uploaded_file is not None:
 
     if st.button("Analizar Imagen"):
         with st.spinner("Analizando la imagen con OpenAI Vision..."):
-            img_bytes = io.BytesIO()
-            image.save(img_bytes, format="PNG")
-            img_bytes.seek(0)
-            image_base64 = base64.b64encode(img_bytes.read()).decode('utf-8')
-
             try:
-                # Llamada al modelo de OpenAI
+                # Convertir imagen a base64
+                img_bytes = io.BytesIO()
+                image.save(img_bytes, format="PNG")
+                img_bytes.seek(0)
+
+                img_base64 = base64.b64encode(img_bytes.getvalue()).decode("utf-8")
+                image_data_url = f"data:image/png;base64,{img_base64}"
+
+                # Llamada a OpenAI Vision (gpt-4o)
                 response = client.chat.completions.create(
-                    model="gpt-4o-mini",
+                    model="gpt-4o",
                     messages=[
-                        {"role": "system", "content": "Eres un experto en visión por computadora que detecta y describe objetos."},
+                        {"role": "system", "content": "Eres un experto en visión por computadora que detecta y describe objetos en imágenes."},
                         {"role": "user", "content": [
-                            {"type": "text", "text": "Detecta todos los objetos visibles y descríbelos."},
-                            {"type": "image_url", "image_url" :f"data:image/png;base64,{image_base64}"},#img_bytes.getvalue()},
+                            {
+                                "type": "text",
+                                "text": "Detecta todos los objetos visibles en la imagen y descríbelos detalladamente."
+                            },
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": image_data_url
+                                }
+                            }
                         ]}
                     ]
                 )
